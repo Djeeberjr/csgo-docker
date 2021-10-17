@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  csgo:
+    build: .
+    environment:
+      - INSECURE=true
+      - MAX_PLAYERS=16
+      - TICKRATE=128
+      - GSLT=XXXX
+      - WORKSHOP_AUTHKEY=XXXXX
+      - MAP=de_nuke
+      - MAPGROUP=mg_bomb
+      - GAMEMODE=retakes
+      - RCONPW=password123
+      - CVAR_MP_DISABLE_AUTOKICK=1
+    volumes:
+      - csgo_game:/home/steam/server
+    ports:
+      - 0.0.0.0:27015:27015/tcp
+      - 0.0.0.0:27015:27015/udp
+      - 0.0.0.0:27020:27020/tcp
+      - 0.0.0.0:27020:27020/udp
+    stdin_open: true
+    tty: true
+
+volumes:
+  csgo_game:
+    name: csgo_game
