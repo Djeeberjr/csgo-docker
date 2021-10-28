@@ -3,6 +3,7 @@ version: "3"
 services:
   csgo:
     build: .
+    image: docker.io/djeeberjr/csgo-docker
     environment:
       - INSECURE=true
       - MAX_PLAYERS=16
