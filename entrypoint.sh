@@ -4,6 +4,20 @@ set -eo pipefail
 
 /home/steam/steamcmd/steamcmd.sh  +login anonymous +force_install_dir /home/steam/server +app_update 740 +quit
 
+
+if [ ! -e "$HOME/server/csgo/addons/metamod.vdf" ]; then
+    echo "Installing Metamod"
+    curl "$METAMOD_DL_URL" -o /tmp/metamod.tar.gz
+    tar -xf /tmp/metamod.tar.gz -C "$HOME/server/csgo"
+    rm /tmp/metamod.tar.gz
+
+    echo "Install Sourcemod"
+    curl "$SOURCEMOD_DL_URL" -o /tmp/sourcemod.tar.gz
+    tar -xf /tmp/sourcemod.tar.gz -C "$HOME/server/csgo"
+    rm /tmp/sourcemod.tar.gz
+fi
+
+
 SRCDS_ARGS="-usercon"
 
 if [ -n "$GSLT" ]; then
