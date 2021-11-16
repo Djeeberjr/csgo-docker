@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-/home/steam/steamcmd/steamcmd.sh  +login anonymous +force_install_dir /home/steam/server +app_update 740 validate +quit
+/home/steam/steamcmd/steamcmd.sh  +login anonymous +force_install_dir /home/steam/server +app_update 740 +quit
 
 SRCDS_ARGS="-usercon"
 
