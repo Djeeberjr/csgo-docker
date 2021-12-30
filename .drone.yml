@@ -5,5 +5,10 @@ steps:
 - name: docker
   image: plugins/docker
   settings:
-    repo: docker.kapelle.org/csgo
-    registry: docker.kapelle.org
+    repo: djeeberjr/csgo-docker
+    username: djeeberjr
+    password:
+      from_secret: DOCKER_HUB_TOKEN
+trigger:
+  branch:
+  - master
