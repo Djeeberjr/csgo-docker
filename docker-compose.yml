@@ -15,6 +15,7 @@ services:
       - GAMEMODE=retakes
       - RCONPW=password123
       - CVAR_MP_DISABLE_AUTOKICK=1
+      - MAP_ROTATION=de_nuke,de_dust2,workshop/298621139/am_trainyard
     volumes:
       - csgo_game:/home/steam/server
     ports:

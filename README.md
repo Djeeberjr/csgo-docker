@@ -24,6 +24,8 @@
 
 `GAMEMODE`: What gamemode to load. Not the same as the `game_mode` cvar. Value gets translated to a gamemode/gametype combination. Available values are: `casual`,`competitive`, `wingman`, `armsrace`, `deathmatch`, `custom`, `coop`, `dangerzone`, `weaponexpert`,`demolition`,`stab_zap`,`ffa`,`flying_scoutsman`,`trigger_discipline`,`headshots`,`hunter_gatherers`,`retakes`,`competitive_short`. For more information see [here](https://developer.valvesoftware.com/wiki/CS:GO_Game_Mode_Commands). 
 
+`MAP_ROTATION` comma separated list of maps to populate the `mapcycle.txt` and `maplist.txt` files.
+
 # Custom conVars
 
 You can set ANY other variable by just prefixing the conVar with `CVAR_`. So for example if you want to set `mp_disable_autokick 1` just set the enviroment variable `CVAR_MP_DISABLE_AUTOKICK` to `1`. Upper or lower case is ignored.

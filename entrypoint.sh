@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-/home/steam/steamcmd/steamcmd.sh  +login anonymous +force_install_dir /home/steam/server +app_update 740 +quit
+/home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/server +login anonymous +app_update 740 +quit
 
 
 if [ ! -e "$HOME/server/csgo/addons/metamod.vdf" ]; then
@@ -17,6 +17,11 @@ if [ ! -e "$HOME/server/csgo/addons/metamod.vdf" ]; then
     rm /tmp/sourcemod.tar.gz
 fi
 
+if [ -n "$MAP_ROTATION" ]; then
+    echo -n "$MAP_ROTATION" | sed 's/,/\n/g' | tee "$HOME/server/csgo/mapcycle.txt" "$HOME/server/csgo/maplist.txt"
+else
+    echo -n "" | tee "$HOME/server/csgo/mapcycle.txt" "$HOME/server/csgo/maplist.txt"
+fi
 
 SRCDS_ARGS="-usercon"
 
@@ -35,6 +40,11 @@ fi
 if [ -n "$INSECURE" ]; then
     SRCDS_ARGS="${SRCDS_ARGS} -insecure"
     echo "Running with VAC disabled."
+fi
+
+if [ -n "$NOMASTER" ]; then
+    SRCDS_ARGS="${SRCDS_ARGS} -nomaster"
+    echo "Running with nomaster."
 fi
 
 if [ -n "$MAX_PLAYERS" ]; then
