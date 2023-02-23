@@ -26,6 +26,8 @@
 
 `MAP_ROTATION` comma separated list of maps to populate the `mapcycle.txt` and `maplist.txt` files.
 
+`SM_ADMIN` comma separated list of ids to grand admin privileges e.g. "STEAM_0:1:57874277", "!127.0.0.1"
+
 # Custom conVars
 
 You can set ANY other variable by just prefixing the conVar with `CVAR_`. So for example if you want to set `mp_disable_autokick 1` just set the enviroment variable `CVAR_MP_DISABLE_AUTOKICK` to `1`. Upper or lower case is ignored.
